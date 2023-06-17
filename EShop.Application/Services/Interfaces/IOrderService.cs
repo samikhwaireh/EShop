@@ -5,5 +5,5 @@ namespace EShop.Application.Services.Interfaces;
 
 public interface IOrderService
 {
-    Task<OrderResponse> CheckOut(OrderResponse orderModel);
+    Task<OrderDto> CheckOut(OrderDto orderModel);
 }

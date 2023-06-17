@@ -18,7 +18,7 @@ public class OrderController : ControllerBase
 
     [Authorize(Roles = "User")]
     [HttpPost("checkout")]
-    public async Task<IActionResult> CheckOut(OrderResponse orderResponse)
+    public async Task<IActionResult> CheckOut(OrderDto orderResponse)
     {
         try
         {

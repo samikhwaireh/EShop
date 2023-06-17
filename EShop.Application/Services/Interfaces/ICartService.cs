@@ -9,7 +9,7 @@ namespace EShop.Application.Services.Interfaces
 {
     public interface ICartService
     {
-        Task<CartResponse> GetCartByUserId(int userId);
+        Task<CartDto> GetCartByUserId(int userId);
         Task AddItem(int userId, int productId);
         Task RemoveItem(int cartId, int cartItemId);
         Task ClearCart(int userId);

@@ -2,7 +2,7 @@
 
 namespace EShop.Application.Models;
 
-public class OrderItemResponse
+public class OrderItemDto
 {
     public int Quantity { get; set; }
     public string Size { get; set; }

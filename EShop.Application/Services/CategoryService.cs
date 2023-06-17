@@ -13,10 +13,10 @@ public class CategoryService : ICategoryService
     {
         this.unitOfWork = unitOfWork;
     }
-    public async Task<IEnumerable<CategoryResponse>> GetCategoryList()
+    public async Task<IEnumerable<CategoryDto>> GetCategoryList()
     {
         var category = await unitOfWork.Categories.GetAllAsync();
-        var mapped = AppMapper.Mapper.Map<IEnumerable<CategoryResponse>>(category);
+        var mapped = AppMapper.Mapper.Map<IEnumerable<CategoryDto>>(category);
         return mapped;
     }
 }

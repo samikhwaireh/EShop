@@ -16,42 +16,42 @@ public class ProductService : IProductService
         this.unitOfWork = unitOfWork;
     }
 
-    public async Task<IEnumerable<ProductResponse>> GetProductByCategory(int categoryId)
+    public async Task<IEnumerable<ProductDto>> GetProductByCategory(int categoryId)
     {
         var productList = await unitOfWork.Products.GetAsync(p => p.CategoryId == categoryId);
-        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductResponse>>(productList);
+        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductDto>>(productList);
         return mapped;
     }
 
-    public async Task<ProductResponse> GetProductById(int productId)
+    public async Task<ProductDto> GetProductById(int productId)
     {
         var product = await unitOfWork.Products.GetByIdAsync(productId);
-        var mapped = AppMapper.Mapper.Map<ProductResponse>(product);
+        var mapped = AppMapper.Mapper.Map<ProductDto>(product);
         return mapped;
     }
 
-    public async Task<IEnumerable<ProductResponse>> GetProductByName(string productName)
+    public async Task<IEnumerable<ProductDto>> GetProductByName(string productName)
     {
         var product = await unitOfWork.Products.GetAsync(p => p.Name == productName);
-        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductResponse>>(product);
+        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductDto>>(product);
         return mapped;
     }
 
-    public async Task<ProductResponse> GetProductBySlug(string slug)
+    public async Task<ProductDto> GetProductBySlug(string slug)
     {
         var productList = await unitOfWork.Products.GetBy(p => p.Slug == slug);
-        var mapped = AppMapper.Mapper.Map<ProductResponse>(productList);
+        var mapped = AppMapper.Mapper.Map<ProductDto>(productList);
         return mapped;
     }
 
-    public async Task<IEnumerable<ProductResponse>> GetProductList()
+    public async Task<IEnumerable<ProductDto>> GetProductList()
     {
         var productList = await unitOfWork.Products.GetAllAsync();
-        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductResponse>>(productList);
+        var mapped = AppMapper.Mapper.Map<IEnumerable<ProductDto>>(productList);
         return mapped;
     }
 
-    public async Task<ProductResponse> Create(ProductResponse product)
+    public async Task<ProductDto> Create(ProductDto product)
     {
         var mappedEntity = AppMapper.Mapper.Map<Product>(product);
         if (mappedEntity == null)
@@ -73,13 +73,13 @@ public class ProductService : IProductService
         await unitOfWork.SaveChanges();
     }
 
-    public async Task Update(ProductResponse product)
+    public async Task Update(ProductDto product)
     {
         var editProduct = await unitOfWork.Products.GetByIdAsync(product.Id);
         if (editProduct == null)
             throw new ApplicationException($"Invalid Product Id.");
 
-        AppMapper.Mapper.Map<ProductResponse, Product>(product, editProduct);
+        AppMapper.Mapper.Map<ProductDto, Product>(product, editProduct);
 
         unitOfWork.Products.Update(editProduct);
         await unitOfWork.SaveChanges();

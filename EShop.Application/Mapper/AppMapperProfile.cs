@@ -11,13 +11,13 @@ public class AppMapperProfile : Profile
 {
     public AppMapperProfile()
     {
-        CreateMap<Product, ProductResponse>();
-        CreateMap<Category, CategoryResponse>().ReverseMap();
-        CreateMap<Wishlist, WishlistResponse>().ReverseMap();
-        CreateMap<Order, OrderResponse>().ReverseMap();
-        CreateMap<OrderItem, OrderItemResponse>().ReverseMap();
-        CreateMap<OrderAddress, OrderAddressResponse>().ReverseMap();
-        CreateMap<Cart, CartResponse>().ReverseMap();
-        CreateMap<CartItem, CartItemResponse>().ReverseMap();
+        CreateMap<Product, ProductDto>();
+        CreateMap<Category, CategoryDto>().ReverseMap();
+        CreateMap<Wishlist, WishlistDto>().ReverseMap();
+        CreateMap<Order, OrderDto>().ReverseMap();
+        CreateMap<OrderItem, OrderItemDto>().ReverseMap();
+        CreateMap<OrderAddress, OrderAddressDto>().ReverseMap();
+        CreateMap<Cart, CartDto>().ReverseMap();
+        CreateMap<CartItem, CartItemDto>().ReverseMap();
     }
 }

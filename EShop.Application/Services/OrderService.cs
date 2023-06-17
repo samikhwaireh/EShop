@@ -15,7 +15,7 @@ public class OrderService : IOrderService
         this.unitOfWork = unitOfWork;
     }
 
-    public async Task<OrderResponse> CheckOut(OrderResponse orderResponse)
+    public async Task<OrderDto> CheckOut(OrderDto orderResponse)
     {
         ValidateOrder(orderResponse);
 
@@ -30,7 +30,7 @@ public class OrderService : IOrderService
         return orderResponse;
     }
 
-    private void ValidateOrder(OrderResponse orderResponse)
+    private void ValidateOrder(OrderDto orderResponse)
     {
 
         if (orderResponse.Items.Count == 0)

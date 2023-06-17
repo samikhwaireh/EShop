@@ -1,7 +1,7 @@
 ﻿namespace EShop.Application.Models;
 
-public class CartResponse
+public class CartDto
 {
     public int UserId { get; set; }
-    public List<CartItemResponse> Items { get; set; }
+    public List<CartItemDto> Items { get; set; }
 }

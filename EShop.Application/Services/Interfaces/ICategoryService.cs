@@ -4,5 +4,5 @@ namespace EShop.Application.Services.Interfaces;
 
 public interface ICategoryService
 {
-    Task<IEnumerable<CategoryResponse>> GetCategoryList();
+    Task<IEnumerable<CategoryDto>> GetCategoryList();
 }

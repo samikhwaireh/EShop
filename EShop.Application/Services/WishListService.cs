@@ -27,15 +27,15 @@ public class WishListService : IWishlistService
         await unitOfWork.SaveChanges();
     }
 
-    public async Task<WishlistResponse> GetWishlistByUserId(int userId)
+    public async Task<WishlistDto> GetWishlistByUserId(int userId)
     {
         var wishlist = await GetExistingOrCreateNewWishlist(userId);
-        var wishlistModel = AppMapper.Mapper.Map<WishlistResponse>(wishlist);
+        var wishlistModel = AppMapper.Mapper.Map<WishlistDto>(wishlist);
 
         foreach (var item in wishlist.ProductWishlists)
         {
             var product = await unitOfWork.Products.GetBy(p => p.Id == item.ProductId);
-            var productModel = AppMapper.Mapper.Map<ProductResponse>(product);
+            var productModel = AppMapper.Mapper.Map<ProductDto>(product);
             wishlistModel.Items.Add(productModel);
         }
 

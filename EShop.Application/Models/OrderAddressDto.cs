@@ -1,6 +1,6 @@
 ﻿namespace EShop.Application.Models;
 
-public class OrderAddressResponse
+public class OrderAddressDto
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

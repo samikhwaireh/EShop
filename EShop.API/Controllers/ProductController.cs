@@ -59,7 +59,7 @@ public class ProductController : ControllerBase
 
     [Authorize(Roles = "Admin")]
     [HttpPost]
-    public async Task<IActionResult> Create(ProductResponse product)
+    public async Task<IActionResult> Create(ProductDto product)
     {
         try
         {
@@ -89,7 +89,7 @@ public class ProductController : ControllerBase
 
     [Authorize(Roles = "Admin")]
     [HttpPut]
-    public async Task<IActionResult> Update(ProductResponse product)
+    public async Task<IActionResult> Update(ProductDto product)
     {
         try
         {

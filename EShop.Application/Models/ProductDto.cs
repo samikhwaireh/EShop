@@ -1,6 +1,6 @@
 ﻿namespace EShop.Application.Models;
 
-public class ProductResponse
+public class ProductDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -14,5 +14,5 @@ public class ProductResponse
     public int? UnitsInStock { get; set; }
     public double Star { get; set; }
     public int? CategoryId { get; set; }
-    public CategoryResponse Category { get; set; }
+    public CategoryDto Category { get; set; }
 }
