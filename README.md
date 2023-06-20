@@ -51,5 +51,3 @@ Contributions to the E-Shop API application are welcome! If you find any issues 
 ## License
 
 The E-Shop API application is released under the [MIT License](LICENSE). You are free to use, modify, and distribute the code as per the terms of the license.
-
-Feel free to customize and expand this README document based on your project's specific features and requirements.
